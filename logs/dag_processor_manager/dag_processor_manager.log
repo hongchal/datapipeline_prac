@@ -3817,3 +3817,327 @@ File Path                                      PID    Runtime      # DAGs    # E
 /opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.10s           2025-06-26T04:11:01                      14
 /opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:11:01                      12
 ================================================================================
+[2025-06-26T04:11:34.571+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.12s           2025-06-26T04:11:20                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.11s           2025-06-26T04:11:31                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.10s           2025-06-26T04:11:31                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:11:31                      12
+================================================================================
+[2025-06-26T04:12:05.081+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.12s           2025-06-26T04:12:02                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.12s           2025-06-26T04:11:36                      13
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.11s           2025-06-26T04:12:02                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:12:02                      12
+================================================================================
+[2025-06-26T04:12:35.861+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.30s           2025-06-26T04:12:32                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.25s           2025-06-26T04:12:32                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.10s           2025-06-26T04:12:07                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.08s           2025-06-26T04:12:32                      12
+================================================================================
+[2025-06-26T04:13:06.677+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.38s           2025-06-26T04:13:03                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.32s           2025-06-26T04:13:03                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.09s           2025-06-26T04:12:37                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.08s           2025-06-26T04:13:03                      12
+================================================================================
+[2025-06-26T04:13:37.234+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.14s           2025-06-26T04:13:34                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.12s           2025-06-26T04:13:34                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.10s           2025-06-26T04:13:08                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:13:34                      12
+================================================================================
+[2025-06-26T04:13:56.577+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-06-26T04:13:56.589+0000] {manager.py:835} INFO - There are 4 files in /opt/airflow/dags
+[2025-06-26T04:14:07.860+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.13s           2025-06-26T04:14:04                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.12s           2025-06-26T04:14:04                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.10s           2025-06-26T04:13:39                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:14:04                      12
+================================================================================
+[2025-06-26T04:14:38.379+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.15s           2025-06-26T04:14:35                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.14s           2025-06-26T04:14:35                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.08s           2025-06-26T04:14:09                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:14:35                      12
+================================================================================
+[2025-06-26T04:15:09.045+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.25s           2025-06-26T04:14:40                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.18s           2025-06-26T04:15:06                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.16s           2025-06-26T04:15:06                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:15:06                      12
+================================================================================
+[2025-06-26T04:15:39.581+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.17s           2025-06-26T04:15:36                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.16s           2025-06-26T04:15:36                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.09s           2025-06-26T04:15:11                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:15:36                      12
+================================================================================
+[2025-06-26T04:16:10.120+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.18s           2025-06-26T04:16:07                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.14s           2025-06-26T04:16:07                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.10s           2025-06-26T04:15:41                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:16:07                      12
+================================================================================
+[2025-06-26T04:16:40.689+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.14s           2025-06-26T04:16:12                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.14s           2025-06-26T04:16:37                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.12s           2025-06-26T04:16:37                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:16:37                      12
+================================================================================
+[2025-06-26T04:17:11.399+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.26s           2025-06-26T04:17:08                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.23s           2025-06-26T04:17:08                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.11s           2025-06-26T04:16:42                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:17:08                      12
+================================================================================
+[2025-06-26T04:17:42.131+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.30s           2025-06-26T04:17:39                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.26s           2025-06-26T04:17:39                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.12s           2025-06-26T04:17:13                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.10s           2025-06-26T04:17:39                      12
+================================================================================
+[2025-06-26T04:18:13.098+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.49s           2025-06-26T04:18:10                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.46s           2025-06-26T04:18:10                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.21s           2025-06-26T04:17:44                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:18:10                      12
+================================================================================
+[2025-06-26T04:18:43.584+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.12s           2025-06-26T04:18:40                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.11s           2025-06-26T04:18:40                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.11s           2025-06-26T04:18:15                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:18:40                      12
+================================================================================
+[2025-06-26T04:18:56.771+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-06-26T04:18:56.782+0000] {manager.py:835} INFO - There are 4 files in /opt/airflow/dags
+[2025-06-26T04:19:14.217+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.22s           2025-06-26T04:19:11                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.19s           2025-06-26T04:19:11                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.08s           2025-06-26T04:18:45                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:19:11                      12
+================================================================================
+[2025-06-26T04:19:44.795+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.32s           2025-06-26T04:19:16                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.14s           2025-06-26T04:19:41                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.11s           2025-06-26T04:19:41                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.05s           2025-06-26T04:19:41                      12
+================================================================================
+[2025-06-26T04:20:15.493+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.25s           2025-06-26T04:20:12                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.22s           2025-06-26T04:20:12                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.11s           2025-06-26T04:19:46                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:20:12                      12
+================================================================================
+[2025-06-26T04:20:45.977+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.12s           2025-06-26T04:20:42                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.11s           2025-06-26T04:20:42                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.08s           2025-06-26T04:20:17                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.05s           2025-06-26T04:20:43                      12
+================================================================================
+[2025-06-26T04:21:16.674+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.26s           2025-06-26T04:21:13                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.24s           2025-06-26T04:21:13                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.08s           2025-06-26T04:20:48                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.07s           2025-06-26T04:21:13                      12
+================================================================================
+[2025-06-26T04:21:47.483+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.22s           2025-06-26T04:21:44                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.19s           2025-06-26T04:21:44                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.17s           2025-06-26T04:21:18                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.09s           2025-06-26T04:21:44                      12
+================================================================================
+[2025-06-26T04:22:18.139+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.26s           2025-06-26T04:22:15                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.22s           2025-06-26T04:22:15                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.16s           2025-06-26T04:21:49                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:22:15                      12
+================================================================================
+[2025-06-26T04:22:48.731+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.19s           2025-06-26T04:22:45                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.15s           2025-06-26T04:22:45                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.09s           2025-06-26T04:22:20                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:22:45                      12
+================================================================================
+[2025-06-26T04:23:19.261+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.16s           2025-06-26T04:23:16                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.16s           2025-06-26T04:23:16                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.10s           2025-06-26T04:22:50                      13
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.07s           2025-06-26T04:23:16                      12
+================================================================================
+[2025-06-26T04:23:49.808+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.14s           2025-06-26T04:23:21                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.13s           2025-06-26T04:23:46                      14
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.12s           2025-06-26T04:23:46                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.06s           2025-06-26T04:23:46                      12
+================================================================================
+[2025-06-26T04:23:56.952+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-06-26T04:23:56.961+0000] {manager.py:835} INFO - There are 4 files in /opt/airflow/dags
+[2025-06-26T04:24:20.465+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.24s           2025-06-26T04:23:52                      35
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.19s           2025-06-26T04:24:00                      36
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.17s           2025-06-26T04:24:17                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.08s           2025-06-26T04:24:09                      12
+================================================================================
+[2025-06-26T04:24:50.991+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.13s           2025-06-26T04:24:30                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.10s           2025-06-26T04:24:39                      12
+/opt/airflow/dags/simple_etl_bigquery_ver2.py                           1           0  0.10s           2025-06-26T04:24:48                      14
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.09s           2025-06-26T04:24:22                      13
+================================================================================
+[2025-06-26T04:24:51.999+0000] {manager.py:1302} WARNING - Skipping processing of missing file: /opt/airflow/dags/simple_etl_bigquery_ver2.py
+[2025-06-26T04:25:21.430+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver4.py                           1           0  0.16s           2025-06-26T04:24:53                      13
+/opt/airflow/dags/simple_etl_bigquery_ver3.py                           1           0  0.14s           2025-06-26T04:25:01                      14
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.11s           2025-06-26T04:25:10                      12
+================================================================================
+[2025-06-26T04:25:27.601+0000] {manager.py:1302} WARNING - Skipping processing of missing file: /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-26T04:25:33.680+0000] {manager.py:1302} WARNING - Skipping processing of missing file: /opt/airflow/dags/simple_etl_bigquery_ver4.py
+[2025-06-26T04:25:51.977+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+---------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/simple_etl_bigquery_ver1.py                           1           0  0.14s           2025-06-26T04:25:40                      12
+================================================================================

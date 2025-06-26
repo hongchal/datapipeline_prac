@@ -1,110 +1,97 @@
 from airflow import DAG
-from airflow.decorators import task
 from airflow.models import Variable
-from airflow.providers.google.cloud.operators.bigquery import (
-    BigQueryCreateEmptyDatasetOperator,
-    BigQueryCreateEmptyTableOperator,
-    BigQueryInsertJobOperator
-)
-from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
+from airflow.decorators import task
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from datetime import datetime
-import requests
 import pandas as pd
+import requests
 from io import StringIO
-from google.cloud import bigquery
+from airflow.operators.dummy import DummyOperator
 
 default_args = {
     'start_date': datetime(2025, 6, 23),
 }
 
 @task
-def extract_and_transform_data():
-    """Extract data from API and transform to CSV format for BigQuery"""
+def extract_and_upload_to_gcs():
+    """
+    API에서 데이터를 추출하고 CSV로 변환한 뒤 GCS에 업로드.
+    반환값: GCS URI
+    """
     url = Variable.get("country_capital_url")
     response = requests.get(url)
     lines = response.text.strip().split("\n")
     records = [line.split(",") for line in lines[1:]]
-    
     df = pd.DataFrame(records, columns=["country", "capital"])
-    
-    # Convert to CSV string for BigQuery load
+
+    # CSV to buffer
     csv_buffer = StringIO()
     df.to_csv(csv_buffer, index=False)
     csv_data = csv_buffer.getvalue()
-    
-    # Store in a temporary location or return for next task
-    return csv_data
 
-@task
-def upload_to_bigquery(csv_data):
-    """Upload CSV data to BigQuery with truncate and load for idempotency"""
-    project_id = Variable.get("BIG_QUERY_PROJECT_ID")
-    dataset_id = "raw_data"
-    table_id = "country_capital"
-    table_ref = f"{project_id}.{dataset_id}.{table_id}"
-    
-    hook = BigQueryHook(
-        gcp_conn_id='google_cloud_default',
-        use_legacy_sql=False
+    # GCS 업로드
+    bucket_name = Variable.get("GCS_BUCKET")  
+    object_name = "country_capital.csv"
+    gcs_hook = GCSHook(gcp_conn_id="google_cloud_default")
+
+    gcs_hook.upload(
+        bucket_name=bucket_name,
+        object_name=object_name,
+        data=csv_data,
+        mime_type="text/csv"
     )
-    
-    # Create DataFrame from CSV data
-    df = pd.read_csv(StringIO(csv_data))
-    
-    # Use WRITE_TRUNCATE for idempotency (replaces table contents)
-    client = hook.get_client(project_id=project_id)
-    
-    job_config = bigquery.LoadJobConfig(
-        write_disposition="WRITE_TRUNCATE",  # This truncates and loads
-        source_format="CSV",
-        skip_leading_rows=1,
-        autodetect=False,
-        schema=[
-            bigquery.SchemaField("country", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("capital", "STRING", mode="NULLABLE"),
-        ]
+
+    return f"gs://{bucket_name}/{object_name}"
+
+def load_csv_to_bigquery(
+    gcs_uri: str,
+    project_id: str,
+    dataset_id: str,
+    table_id: str,
+    schema_fields: list
+):
+    return BigQueryInsertJobOperator(
+        task_id=f"load_{table_id}_from_gcs",
+        configuration={
+            "load": {
+                "sourceUris": [gcs_uri],
+                "destinationTable": {
+                    "projectId": project_id,
+                    "datasetId": dataset_id,
+                    "tableId": table_id,
+                },
+                "sourceFormat": "CSV",
+                "skipLeadingRows": 1,
+                "writeDisposition": "WRITE_TRUNCATE",
+                "schema": {"fields": schema_fields},
+            }
+        },
+        gcp_conn_id="google_cloud_default",
+        trigger_rule="all_success",  # Optional
     )
-    
-    job = client.load_table_from_dataframe(df, table_ref, job_config=job_config)
-    job.result()
-    
-    print(f"✅ {len(df)} rows loaded into {table_ref}")
 
 with DAG(
-    dag_id='country_capital_to_bigquery_operator',
+    dag_id='gcs_to_bigquery_etl',
     default_args=default_args,
     schedule='0 2 * * *',
     catchup=False,
-    tags=['example', 'bigquery-operator'],
+    tags=['example'],
 ) as dag:
+    start = DummyOperator(task_id="start")
+    end = DummyOperator(task_id="end")
 
-    # Create dataset if not exists
-    create_dataset = BigQueryCreateEmptyDatasetOperator(
-        task_id='create_dataset',
-        dataset_id='raw_data',
+    gcs_uri = extract_and_upload_to_gcs()
+
+    load_to_bigquery = load_csv_to_bigquery(
+        gcs_uri=gcs_uri,
         project_id=Variable.get("BIG_QUERY_PROJECT_ID"),
-        location='US',
-        exists_ok=True,
-        gcp_conn_id='google_cloud_default'
-    )
-    
-    # Create table if not exists
-    create_table = BigQueryCreateEmptyTableOperator(
-        task_id='create_table',
-        dataset_id='raw_data',
-        table_id='country_capital',
-        project_id=Variable.get("BIG_QUERY_PROJECT_ID"),
+        dataset_id="raw_data",
+        table_id="country_capital",
         schema_fields=[
-            {'name': 'country', 'type': 'STRING', 'mode': 'REQUIRED'},
-            {'name': 'capital', 'type': 'STRING', 'mode': 'NULLABLE'},
-        ],
-        exists_ok=True,
-        gcp_conn_id='google_cloud_default'
+            {"name": "country", "type": "STRING", "mode": "REQUIRED"},
+            {"name": "capital", "type": "STRING", "mode": "NULLABLE"},
+        ]
     )
-    
-    # ETL tasks
-    csv_data = extract_and_transform_data()
-    upload_task = upload_to_bigquery(csv_data)
-    
-    # Set task dependencies
-    create_dataset >> create_table >> csv_data >> upload_task
+
+    start >> gcs_uri >> load_to_bigquery >> end
