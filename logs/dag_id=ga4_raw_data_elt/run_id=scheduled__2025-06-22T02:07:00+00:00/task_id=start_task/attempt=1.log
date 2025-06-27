@@ -1,0 +1,88 @@
+[2025-06-27T02:06:09.145+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:06:09.167+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:06:09.173+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:06:09.174+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:06:09.195+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): start_task> on 2025-06-22 02:07:00+00:00
+[2025-06-27T02:06:09.245+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=53) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:06:09.261+0000] {standard_task_runner.py:72} INFO - Started process 65 to run task
+[2025-06-27T02:06:09.262+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'start_task', 'scheduled__2025-06-22T02:07:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmp19pjp_oc']
+[2025-06-27T02:06:09.275+0000] {standard_task_runner.py:105} INFO - Job 6: Subtask start_task
+[2025-06-27T02:06:09.419+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [running]> on host 040d1cf847a3
+[2025-06-27T02:06:09.506+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='start_task' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T02:07:00+00:00'
+[2025-06-27T02:06:09.509+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:06:09.511+0000] {logging_mixin.py:190} INFO - start
+[2025-06-27T02:06:09.512+0000] {logging_mixin.py:190} INFO - ds: 2025-06-22
+[2025-06-27T02:06:09.512+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-06-27T02:06:09.525+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:06:09.526+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=start_task, run_id=scheduled__2025-06-22T02:07:00+00:00, execution_date=20250622T020700, start_date=20250627T020609, end_date=20250627T020609
+[2025-06-27T02:06:09.579+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:06:09.603+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:06:09.609+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:17:46.014+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:17:46.030+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:17:46.041+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:17:46.044+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:17:46.062+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): start_task> on 2025-06-22 02:07:00+00:00
+[2025-06-27T02:17:46.122+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=53) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:17:46.164+0000] {standard_task_runner.py:72} INFO - Started process 67 to run task
+[2025-06-27T02:17:46.190+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'start_task', 'scheduled__2025-06-22T02:07:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpihjm0lep']
+[2025-06-27T02:17:46.194+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask start_task
+[2025-06-27T02:17:46.298+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [running]> on host ece8b7d95be1
+[2025-06-27T02:17:46.385+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='start_task' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T02:07:00+00:00'
+[2025-06-27T02:17:46.389+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:17:46.391+0000] {logging_mixin.py:190} INFO - start
+[2025-06-27T02:17:46.391+0000] {logging_mixin.py:190} INFO - ds: 2025-06-22
+[2025-06-27T02:17:46.392+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-06-27T02:17:46.402+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:17:46.403+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=start_task, run_id=scheduled__2025-06-22T02:07:00+00:00, execution_date=20250622T020700, start_date=20250627T021746, end_date=20250627T021746
+[2025-06-27T02:17:46.457+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:17:46.484+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:17:46.489+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:21:06.110+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:21:06.138+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:21:06.147+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:21:06.148+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:21:06.173+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): start_task> on 2025-06-22 02:07:00+00:00
+[2025-06-27T02:21:06.225+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'start_task', 'scheduled__2025-06-22T02:07:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpr1iuvvgd']
+[2025-06-27T02:21:06.359+0000] {standard_task_runner.py:105} INFO - Job 9: Subtask start_task
+[2025-06-27T02:21:06.221+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=53) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:21:06.362+0000] {standard_task_runner.py:72} INFO - Started process 66 to run task
+[2025-06-27T02:21:06.462+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [running]> on host a6d750376b6f
+[2025-06-27T02:21:06.552+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='start_task' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T02:07:00+00:00'
+[2025-06-27T02:21:06.555+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:21:06.559+0000] {logging_mixin.py:190} INFO - start
+[2025-06-27T02:21:06.560+0000] {logging_mixin.py:190} INFO - ds: 2025-06-22
+[2025-06-27T02:21:06.560+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-06-27T02:21:06.570+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:21:06.571+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=start_task, run_id=scheduled__2025-06-22T02:07:00+00:00, execution_date=20250622T020700, start_date=20250627T022106, end_date=20250627T022106
+[2025-06-27T02:21:06.600+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:21:06.624+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:21:06.625+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:34:50.416+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:34:50.430+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:34:50.442+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [queued]>
+[2025-06-27T02:34:50.443+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:34:50.460+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): start_task> on 2025-06-22 02:07:00+00:00
+[2025-06-27T02:34:50.485+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=54) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:34:50.489+0000] {standard_task_runner.py:72} INFO - Started process 77 to run task
+[2025-06-27T02:34:50.497+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'start_task', 'scheduled__2025-06-22T02:07:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpd4sdmo8_']
+[2025-06-27T02:34:50.508+0000] {standard_task_runner.py:105} INFO - Job 10: Subtask start_task
+[2025-06-27T02:34:50.641+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.start_task scheduled__2025-06-22T02:07:00+00:00 [running]> on host ba60ab6371e3
+[2025-06-27T02:34:50.731+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='start_task' AIRFLOW_CTX_EXECUTION_DATE='2025-06-22T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-22T02:07:00+00:00'
+[2025-06-27T02:34:50.735+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:34:50.741+0000] {logging_mixin.py:190} INFO - start
+[2025-06-27T02:34:50.743+0000] {logging_mixin.py:190} INFO - ds: 2025-06-22
+[2025-06-27T02:34:50.743+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-06-27T02:34:50.756+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:34:50.757+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=start_task, run_id=scheduled__2025-06-22T02:07:00+00:00, execution_date=20250622T020700, start_date=20250627T023450, end_date=20250627T023450
+[2025-06-27T02:34:50.782+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:34:50.817+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:34:50.819+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

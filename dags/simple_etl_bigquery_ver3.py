@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.models import Variable
 from airflow.decorators import task
-from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator, BigQueryCreateEmptyDatasetOperator
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from datetime import datetime
 import pandas as pd
@@ -81,6 +81,14 @@ with DAG(
     start = DummyOperator(task_id="start")
     end = DummyOperator(task_id="end")
 
+    create_dataset = BigQueryCreateEmptyDatasetOperator(
+        task_id="create_raw_data_dataset",
+        dataset_id="raw_data",
+        project_id=Variable.get("BIG_QUERY_PROJECT_ID"),
+        gcp_conn_id="google_cloud_default",
+        exists_ok=True
+    )
+
     gcs_uri = extract_and_upload_to_gcs()
 
     load_to_bigquery = load_csv_to_bigquery(
@@ -94,4 +102,4 @@ with DAG(
         ]
     )
 
-    start >> gcs_uri >> load_to_bigquery >> end
+    start >> create_dataset >> gcs_uri >> load_to_bigquery >> end

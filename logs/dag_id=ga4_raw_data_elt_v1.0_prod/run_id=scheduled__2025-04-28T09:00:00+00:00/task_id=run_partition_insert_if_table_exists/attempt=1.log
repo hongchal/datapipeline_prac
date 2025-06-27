@@ -1,0 +1,22 @@
+[2025-06-27T06:56:30.423+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T06:56:30.486+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_prod.run_partition_insert_if_table_exists scheduled__2025-04-28T09:00:00+00:00 [queued]>
+[2025-06-27T06:56:30.650+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_prod.run_partition_insert_if_table_exists scheduled__2025-04-28T09:00:00+00:00 [queued]>
+[2025-06-27T06:56:30.656+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T06:56:30.763+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): run_partition_insert_if_table_exists> on 2025-04-28 09:00:00+00:00
+[2025-06-27T06:56:30.802+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2414) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T06:56:30.814+0000] {standard_task_runner.py:72} INFO - Started process 2452 to run task
+[2025-06-27T06:56:30.825+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0_prod', 'run_partition_insert_if_table_exists', 'scheduled__2025-04-28T09:00:00+00:00', '--job-id', '723', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpsmcmwpr8']
+[2025-06-27T06:56:30.841+0000] {standard_task_runner.py:105} INFO - Job 723: Subtask run_partition_insert_if_table_exists
+[2025-06-27T06:56:31.010+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0_prod.run_partition_insert_if_table_exists scheduled__2025-04-28T09:00:00+00:00 [running]> on host e7fdb6bf901c
+[2025-06-27T06:56:31.164+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0_prod' AIRFLOW_CTX_TASK_ID='run_partition_insert_if_table_exists' AIRFLOW_CTX_EXECUTION_DATE='2025-04-28T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-28T09:00:00+00:00'
+[2025-06-27T06:56:31.181+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T06:56:31.205+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T06:56:31.214+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T06:56:31.273+0000] {bigquery.py:2957} INFO - Executing: {'query': {'query': 'DECLARE dt STRING;\nDECLARE table_exists BOOL;\n\nSET dt = FORMAT_DATE(\'%Y%m%d\', DATE(\'2025-04-28\'));\n\nSET table_exists = (\nSELECT COUNT(*) > 0\nFROM `sixth-topic-349709.analytics_412203527.__TABLES__`\nWHERE table_id = FORMAT("events_%s", dt)\n);\n\nIF table_exists THEN\nEXECUTE IMMEDIATE FORMAT(\'\'\'\n    DELETE FROM `sixth-topic-349709.ga4_events.raw_data`\n    WHERE partition_date = PARSE_DATE(\'%%Y%%m%%d\', \'%s\')\n\'\'\', dt);\n\nEXECUTE IMMEDIATE FORMAT(\'\'\'\n    INSERT INTO `sixth-topic-349709.ga4_events.raw_data`    \n    SELECT *, PARSE_DATE(\'%%Y%%m%%d\', event_date) AS partition_date\n    FROM `sixth-topic-349709.analytics_412203527.events_%s`\n\'\'\', dt);\nEND IF;', 'useLegacySql': False}}'
+[2025-06-27T06:56:31.276+0000] {bigquery.py:1702} INFO - Inserting job ***_ga4_raw_data_elt_v1_0_prod_run_partition_insert_if_table_exists_2025_04_28T09_00_00_00_00_6f1343a09afee6160e2fc469e8467b57
+[2025-06-27T06:56:53.940+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T06:56:53.953+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt_v1.0_prod, task_id=run_partition_insert_if_table_exists, run_id=scheduled__2025-04-28T09:00:00+00:00, execution_date=20250428T090000, start_date=20250627T065630, end_date=20250627T065653
+[2025-06-27T06:56:54.059+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T06:56:54.090+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

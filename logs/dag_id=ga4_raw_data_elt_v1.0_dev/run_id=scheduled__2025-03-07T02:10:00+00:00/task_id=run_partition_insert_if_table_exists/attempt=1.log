@@ -1,0 +1,62 @@
+[2025-06-27T06:24:42.415+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T06:24:43.008+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-03-07T02:10:00+00:00 [queued]>
+[2025-06-27T06:24:43.047+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-03-07T02:10:00+00:00 [queued]>
+[2025-06-27T06:24:43.056+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T06:24:43.331+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): run_partition_insert_if_table_exists> on 2025-03-07 02:10:00+00:00
+[2025-06-27T06:24:43.403+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1535) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T06:24:43.412+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0_dev', 'run_partition_insert_if_table_exists', 'scheduled__2025-03-07T02:10:00+00:00', '--job-id', '386', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpd3xenl8f']
+[2025-06-27T06:24:43.441+0000] {standard_task_runner.py:105} INFO - Job 386: Subtask run_partition_insert_if_table_exists
+[2025-06-27T06:24:43.438+0000] {standard_task_runner.py:72} INFO - Started process 1596 to run task
+[2025-06-27T06:24:43.847+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-03-07T02:10:00+00:00 [running]> on host 4e2c61145aac
+[2025-06-27T06:24:44.633+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0_dev' AIRFLOW_CTX_TASK_ID='run_partition_insert_if_table_exists' AIRFLOW_CTX_EXECUTION_DATE='2025-03-07T02:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-07T02:10:00+00:00'
+[2025-06-27T06:24:44.674+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T06:24:44.775+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T06:24:44.816+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T06:24:45.033+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-06-27T06:24:45.225+0000] {process_utils.py:132} INFO - Sending 15 to group 1596. PIDs of all processes in the group: [1596]
+[2025-06-27T06:24:45.291+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 1596
+[2025-06-27T06:24:45.296+0000] {taskinstance.py:3092} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-06-27T06:24:45.304+0000] {bigquery.py:3069} INFO - Skipping to cancel job: sixth-topic-349709:None.None
+[2025-06-27T06:24:45.376+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 2947, in execute
+    self.job_id = hook.generate_job_id(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2369, in generate_job_id
+    return re.sub(r"[:\-+.]", "_", job_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/re/__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/re/_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/re/_parser.py", line 969, in parse
+    def parse(str, flags=0, state=None):
+    
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3094, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-06-27T06:24:45.486+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=ga4_raw_data_elt_v1.0_dev, task_id=run_partition_insert_if_table_exists, run_id=scheduled__2025-03-07T02:10:00+00:00, execution_date=20250307T021000, start_date=20250627T062443, end_date=20250627T062445
+[2025-06-27T06:24:45.630+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T06:24:45.702+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1596, status='terminated', exitcode=2, started='06:24:42') (1596) terminated with exit code 2
+[2025-06-27T06:24:45.727+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 143
+[2025-06-27T06:24:45.920+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T06:24:46.951+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

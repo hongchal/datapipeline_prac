@@ -1,0 +1,46 @@
+[2025-06-27T02:54:57.797+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:54:57.812+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [queued]>
+[2025-06-27T02:54:57.822+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [queued]>
+[2025-06-27T02:54:57.822+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:54:57.838+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): create_partitioned_table_if_not_exists> on 2025-06-25 05:00:00+00:00
+[2025-06-27T02:54:57.858+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=98) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:54:57.863+0000] {standard_task_runner.py:72} INFO - Started process 112 to run task
+[2025-06-27T02:54:57.863+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0', 'create_partitioned_table_if_not_exists', 'scheduled__2025-06-25T05:00:00+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmp08w8u_zf']
+[2025-06-27T02:54:57.868+0000] {standard_task_runner.py:105} INFO - Job 125: Subtask create_partitioned_table_if_not_exists
+[2025-06-27T02:54:57.931+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [running]> on host ba60ab6371e3
+[2025-06-27T02:54:58.018+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0' AIRFLOW_CTX_TASK_ID='create_partitioned_table_if_not_exists' AIRFLOW_CTX_EXECUTION_DATE='2025-06-25T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-25T05:00:00+00:00'
+[2025-06-27T02:54:58.019+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:54:58.030+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:54:58.033+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:54:58.085+0000] {bigquery.py:2957} INFO - Executing: {'query': {'query': '\n                    DECLARE dt STRING;\n                    DECLARE source_table_exists BOOL;\n\n                    SET dt = FORMAT_DATE(\'%Y%m%d\', DATE(\'2025-06-25\'));\n\n                    SET source_table_exists = (\n                    SELECT COUNT(*) > 0\n                    FROM `sixth-topic-349709.analytics_412203527.__TABLES__`\n                    WHERE table_id = FORMAT("events_%s", dt)\n                    );\n\n                    IF source_table_exists THEN\n                    EXECUTE IMMEDIATE FORMAT(\'\'\'\n                        CREATE TABLE IF NOT EXISTS `sixth-topic-349709.ga4_events.raw_data`\n                        PARTITION BY partition_date\n                        AS\n                        SELECT *, PARSE_DATE(\'%%Y%%m%%d\', event_date) AS partition_date\n                        FROM `sixth-topic-349709.analytics_412203527.events_%s`\n                        WHERE FALSE\n                    \'\'\', dt);\n                    END IF;\n                ', 'useLegacySql': False}}'
+[2025-06-27T02:54:58.087+0000] {bigquery.py:1702} INFO - Inserting job ***_ga4_raw_data_elt_v1_0_create_partitioned_table_if_not_exists_2025_06_25T05_00_00_00_00_7048526f67681c759cf7c264dc92f73a
+[2025-06-27T02:55:00.413+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:55:00.415+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt_v1.0, task_id=create_partitioned_table_if_not_exists, run_id=scheduled__2025-06-25T05:00:00+00:00, execution_date=20250625T050000, start_date=20250627T025457, end_date=20250627T025500
+[2025-06-27T02:55:00.475+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:55:00.522+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:55:00.524+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T04:32:03.219+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T04:32:03.235+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [queued]>
+[2025-06-27T04:32:03.241+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [queued]>
+[2025-06-27T04:32:03.242+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T04:32:03.253+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): create_partitioned_table_if_not_exists> on 2025-06-25 05:00:00+00:00
+[2025-06-27T04:32:03.260+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3477) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T04:32:03.264+0000] {standard_task_runner.py:72} INFO - Started process 3500 to run task
+[2025-06-27T04:32:03.263+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0', 'create_partitioned_table_if_not_exists', 'scheduled__2025-06-25T05:00:00+00:00', '--job-id', '864', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpeud4yfdi']
+[2025-06-27T04:32:03.268+0000] {standard_task_runner.py:105} INFO - Job 864: Subtask create_partitioned_table_if_not_exists
+[2025-06-27T04:32:03.340+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0.create_partitioned_table_if_not_exists scheduled__2025-06-25T05:00:00+00:00 [running]> on host f79cc72a155d
+[2025-06-27T04:32:03.433+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0' AIRFLOW_CTX_TASK_ID='create_partitioned_table_if_not_exists' AIRFLOW_CTX_EXECUTION_DATE='2025-06-25T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-25T05:00:00+00:00'
+[2025-06-27T04:32:03.438+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T04:32:03.458+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T04:32:03.467+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T04:32:03.520+0000] {bigquery.py:2957} INFO - Executing: {'query': {'query': '\n                    DECLARE dt STRING;\n                    DECLARE source_table_exists BOOL;\n\n                    SET dt = FORMAT_DATE(\'%Y%m%d\', DATE(\'2025-06-25\'));\n\n                    SET source_table_exists = (\n                    SELECT COUNT(*) > 0\n                    FROM `sixth-topic-349709.analytics_412203527.__TABLES__`\n                    WHERE table_id = FORMAT("events_%s", dt)\n                    );\n\n                    IF source_table_exists THEN\n                    EXECUTE IMMEDIATE FORMAT(\'\'\'\n                        CREATE TABLE IF NOT EXISTS `sixth-topic-349709.ga4_events.raw_data`\n                        PARTITION BY partition_date\n                        AS\n                        SELECT *, PARSE_DATE(\'%%Y%%m%%d\', event_date) AS partition_date\n                        FROM `sixth-topic-349709.analytics_412203527.events_%s`\n                        WHERE FALSE\n                    \'\'\', dt);\n                    END IF;\n                ', 'useLegacySql': False}}'
+[2025-06-27T04:32:03.523+0000] {bigquery.py:1702} INFO - Inserting job ***_ga4_raw_data_elt_v1_0_create_partitioned_table_if_not_exists_2025_06_25T05_00_00_00_00_55c8fb00db9ce2520147e2fe830f7d13
+[2025-06-27T04:32:06.080+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T04:32:06.085+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt_v1.0, task_id=create_partitioned_table_if_not_exists, run_id=scheduled__2025-06-25T05:00:00+00:00, execution_date=20250625T050000, start_date=20250627T043203, end_date=20250627T043206
+[2025-06-27T04:32:06.277+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T04:32:06.526+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T04:32:06.534+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

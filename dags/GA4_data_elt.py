@@ -1,11 +1,15 @@
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator, BigQueryCreateEmptyDatasetOperator
-from airflow.models import Variable
 from datetime import datetime
 from airflow.decorators import task
+from airflow.models import Variable
+from util.read_sql_file import read_sql_file
+import os 
+
+ENV = os.getenv('ENV', 'dev')
 
 default_args = {
-    'start_date': datetime(2025, 6, 20),
+    'start_date': datetime(2024, 12, 31) if ENV == 'prod' else datetime(2025, 6, 5),
 }
 
 @task 
@@ -17,20 +21,20 @@ def start_task(**context):
 def end_task():
     print("end")
 
-with DAG(
-    dag_id='ga4_raw_data_elt',
+with DAG(   
+    dag_id= f'ga4_raw_data_elt_v1.0_{ENV}',
     default_args=default_args,
-    schedule='0 5 * * *',  # 매일 5시에 실행
+    schedule= '0 9 * * *' if ENV == 'prod' else '10 2 * * *',  
     catchup=True,
-    tags=['ga4', 'raw_data_elt'],
+    tags=['ga4', 'raw_data_elt', 'prod'] if ENV == 'prod' else ['ga4', 'raw_data_elt', 'dev'],
 ) as dag:
     start = start_task()
     end = end_task()
 
     create_dataset = BigQueryCreateEmptyDatasetOperator(
         task_id='create_ga4_events_dataset',
-        dataset_id='ga4_events',
-        project_id='sixth-topic-349709',
+        dataset_id=Variable.get('GA4_PROD_RAW_DATASET_ID') if ENV == 'prod' else Variable.get('GA4_DEV_RAW_DATASET_ID'),
+        project_id=Variable.get('BIG_QUERY_PROJECT_ID'),
         location='US',
         exists_ok=True,
         gcp_conn_id='google_cloud_default',
@@ -41,29 +45,15 @@ with DAG(
         gcp_conn_id='google_cloud_default',
         configuration={
             "query": {
-                "query": """
-                    DECLARE dt STRING;
-                    DECLARE source_table_exists BOOL;
-
-                    SET dt = FORMAT_DATE('%Y%m%d', DATE_SUB(DATE('{{ ds }}'), INTERVAL 1 DAY));
-
-                    SET source_table_exists = (
-                    SELECT COUNT(*) > 0
-                    FROM `sixth-topic-349709.analytics_412203527.__TABLES__`
-                    WHERE table_id = FORMAT("events_%s", dt)
-                    );
-
-                    IF source_table_exists THEN
-                    EXECUTE IMMEDIATE FORMAT('''
-                        CREATE TABLE IF NOT EXISTS `sixth-topic-349709.ga4_events.raw_data`
-                        PARTITION BY partition_date
-                        AS
-                        SELECT *, PARSE_DATE('%%Y%%m%%d', event_date) AS partition_date
-                        FROM `sixth-topic-349709.analytics_412203527.events_%s`
-                        WHERE FALSE
-                    ''', dt);
-                    END IF;
-                """,
+                "query": read_sql_file(
+                    'create_partitioned_table.sql',
+                    'sql/GA4_elt',
+                    ds='{{ ds }}',
+                    project_id=Variable.get('BIG_QUERY_PROJECT_ID'),
+                    source_dataset_id=Variable.get('GA4_PROD_DATASET_ID') if ENV == 'prod' else Variable.get('GA4_DEV_DATASET_ID'),
+                    target_dataset_id=Variable.get('GA4_PROD_RAW_DATASET_ID') if ENV == 'prod' else Variable.get('GA4_DEV_RAW_DATASET_ID'),
+                    target_table_id=Variable.get('GA4_PROD_RAW_DATA_TABLE_ID') if ENV == 'prod' else Variable.get('GA4_DEV_RAW_DATA_TABLE_ID')
+                ),
                 "useLegacySql": False,
             }
         },
@@ -74,31 +64,15 @@ with DAG(
         gcp_conn_id='google_cloud_default',
         configuration={
             "query": {
-                "query": """
-                    DECLARE dt STRING;
-                    DECLARE table_exists BOOL;
-
-                    SET dt = FORMAT_DATE('%Y%m%d', DATE_SUB(DATE('{{ ds }}'), INTERVAL 1 DAY));
-
-                    SET table_exists = (
-                    SELECT COUNT(*) > 0
-                    FROM `sixth-topic-349709.analytics_412203527.__TABLES__`
-                    WHERE table_id = FORMAT("events_%s", dt)
-                    );
-
-                    IF table_exists THEN
-                    EXECUTE IMMEDIATE FORMAT('''
-                        DELETE FROM `sixth-topic-349709.ga4_events.raw_data`
-                        WHERE partition_date = PARSE_DATE('%%Y%%m%%d', '%s')
-                    ''', dt);
-                    
-                    EXECUTE IMMEDIATE FORMAT('''
-                        INSERT INTO `sixth-topic-349709.ga4_events.raw_data`    
-                        SELECT *, PARSE_DATE('%%Y%%m%%d', event_date) AS partition_date
-                        FROM `sixth-topic-349709.analytics_412203527.events_%s`
-                    ''', dt);
-                    END IF;     
-                """,
+                "query": read_sql_file(
+                    'insert_partition_data.sql',
+                    'sql/GA4_elt',
+                    ds='{{ ds }}',      
+                    project_id=Variable.get('BIG_QUERY_PROJECT_ID'),
+                    source_dataset_id=Variable.get('GA4_PROD_DATASET_ID') if ENV == 'prod' else Variable.get('GA4_DEV_DATASET_ID'),
+                    target_dataset_id=Variable.get('GA4_PROD_RAW_DATASET_ID') if ENV == 'prod' else Variable.get('GA4_DEV_RAW_DATASET_ID'),
+                    target_table_id=Variable.get('GA4_PROD_RAW_DATA_TABLE_ID') if ENV == 'prod' else Variable.get('GA4_DEV_RAW_DATA_TABLE_ID')
+                ),
                 "useLegacySql": False,
             }
         },

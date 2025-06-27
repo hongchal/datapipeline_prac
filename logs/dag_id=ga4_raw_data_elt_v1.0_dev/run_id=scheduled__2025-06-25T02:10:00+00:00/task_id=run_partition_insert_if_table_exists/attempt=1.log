@@ -1,0 +1,23 @@
+[2025-06-27T06:33:27.268+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T06:33:27.284+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-06-25T02:10:00+00:00 [queued]>
+[2025-06-27T06:33:27.290+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-06-25T02:10:00+00:00 [queued]>
+[2025-06-27T06:33:27.290+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T06:33:27.300+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): run_partition_insert_if_table_exists> on 2025-06-25 02:10:00+00:00
+[2025-06-27T06:33:27.309+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=452) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T06:33:27.311+0000] {standard_task_runner.py:72} INFO - Started process 464 to run task
+[2025-06-27T06:33:27.312+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0_dev', 'run_partition_insert_if_table_exists', 'scheduled__2025-06-25T02:10:00+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpsshsxjj5']
+[2025-06-27T06:33:27.315+0000] {standard_task_runner.py:105} INFO - Job 106: Subtask run_partition_insert_if_table_exists
+[2025-06-27T06:33:27.372+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0_dev.run_partition_insert_if_table_exists scheduled__2025-06-25T02:10:00+00:00 [running]> on host 9254d6815a5d
+[2025-06-27T06:33:27.442+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0_dev' AIRFLOW_CTX_TASK_ID='run_partition_insert_if_table_exists' AIRFLOW_CTX_EXECUTION_DATE='2025-06-25T02:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-25T02:10:00+00:00'
+[2025-06-27T06:33:27.444+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T06:33:27.456+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T06:33:27.460+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T06:33:27.508+0000] {bigquery.py:2957} INFO - Executing: {'query': {'query': 'DECLARE dt STRING;\nDECLARE table_exists BOOL;\n\nSET dt = FORMAT_DATE(\'%Y%m%d\', DATE(\'2025-06-25\'));\n\nSET table_exists = (\nSELECT COUNT(*) > 0\nFROM `sixth-topic-349709.analytics_393230827.__TABLES__`\nWHERE table_id = FORMAT("events_%s", dt)\n);\n\nIF table_exists THEN\nEXECUTE IMMEDIATE FORMAT(\'\'\'\n    DELETE FROM `sixth-topic-349709.ga4_events_dev.raw_data_dev`\n    WHERE partition_date = PARSE_DATE(\'%%Y%%m%%d\', \'%s\')\n\'\'\', dt);\n\nEXECUTE IMMEDIATE FORMAT(\'\'\'\n    INSERT INTO `sixth-topic-349709.ga4_events_dev.raw_data_dev`    \n    SELECT *, PARSE_DATE(\'%%Y%%m%%d\', event_date) AS partition_date\n    FROM `sixth-topic-349709.analytics_393230827.events_%s`\n\'\'\', dt);\nEND IF;', 'useLegacySql': False}}'
+[2025-06-27T06:33:27.512+0000] {bigquery.py:1702} INFO - Inserting job ***_ga4_raw_data_elt_v1_0_dev_run_partition_insert_if_table_exists_2025_06_25T02_10_00_00_00_843cc17de68b76f7eb05db4ff9046770
+[2025-06-27T06:33:35.126+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T06:33:35.128+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt_v1.0_dev, task_id=run_partition_insert_if_table_exists, run_id=scheduled__2025-06-25T02:10:00+00:00, execution_date=20250625T021000, start_date=20250627T063327, end_date=20250627T063335
+[2025-06-27T06:33:35.166+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T06:33:35.194+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T06:33:35.195+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

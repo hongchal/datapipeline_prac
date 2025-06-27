@@ -1,0 +1,119 @@
+[2025-06-27T02:58:24.732+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:58:24.869+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.run_partition_insert_if_table_exists scheduled__2024-01-22T05:00:00+00:00 [queued]>
+[2025-06-27T02:58:24.892+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt_v1.0.run_partition_insert_if_table_exists scheduled__2024-01-22T05:00:00+00:00 [queued]>
+[2025-06-27T02:58:24.894+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:58:25.058+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryInsertJobOperator): run_partition_insert_if_table_exists> on 2024-01-22 05:00:00+00:00
+[2025-06-27T02:58:25.210+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=627) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:58:25.222+0000] {standard_task_runner.py:72} INFO - Started process 654 to run task
+[2025-06-27T02:58:25.248+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt_v1.0', 'run_partition_insert_if_table_exists', 'scheduled__2024-01-22T05:00:00+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpfwgejkqy']
+[2025-06-27T02:58:25.296+0000] {standard_task_runner.py:105} INFO - Job 254: Subtask run_partition_insert_if_table_exists
+[2025-06-27T02:58:25.573+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt_v1.0.run_partition_insert_if_table_exists scheduled__2024-01-22T05:00:00+00:00 [running]> on host ba60ab6371e3
+[2025-06-27T02:58:26.523+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt_v1.0' AIRFLOW_CTX_TASK_ID='run_partition_insert_if_table_exists' AIRFLOW_CTX_EXECUTION_DATE='2024-01-22T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-22T05:00:00+00:00'
+[2025-06-27T02:58:26.552+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:58:26.631+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:58:26.644+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:58:26.800+0000] {bigquery.py:2957} INFO - Executing: {'query': {'query': '\n                    DECLARE dt STRING;\n                    DECLARE table_exists BOOL;\n\n                    SET dt = FORMAT_DATE(\'%Y%m%d\', DATE(\'2024-01-22\'));\n\n                    SET table_exists = (\n                    SELECT COUNT(*) > 0\n                    FROM `sixth-topic-349709.analytics_412203527.__TABLES__`\n                    WHERE table_id = FORMAT("events_%s", dt)\n                    );\n\n                    IF table_exists THEN\n                    EXECUTE IMMEDIATE FORMAT(\'\'\'\n                        DELETE FROM `sixth-topic-349709.ga4_events.raw_data`\n                        WHERE partition_date = PARSE_DATE(\'%%Y%%m%%d\', \'%s\')\n                    \'\'\', dt);\n                    \n                    EXECUTE IMMEDIATE FORMAT(\'\'\'\n                        INSERT INTO `sixth-topic-349709.ga4_events.raw_data`    \n                        SELECT *, PARSE_DATE(\'%%Y%%m%%d\', event_date) AS partition_date\n                        FROM `sixth-topic-349709.analytics_412203527.events_%s`\n                    \'\'\', dt);\n                    END IF;     \n                ', 'useLegacySql': False}}'
+[2025-06-27T02:58:26.806+0000] {bigquery.py:1702} INFO - Inserting job ***_ga4_raw_data_elt_v1_0_run_partition_insert_if_table_exists_2024_01_22T05_00_00_00_00_63448264f987eec9c37ce8f3f80bc57b
+[2025-06-27T02:58:31.726+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 3023, in execute
+    job.result(timeout=self.result_timeout, retry=self.result_retry)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/query.py", line 1590, in result
+    do_get_result()
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/query.py", line 1579, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 971, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Query error: Inserted row has wrong column count; Has 26, expected 31 at [3:25]
+
+Location: US
+Job ID: airflow_ga4_raw_data_elt_v1_0_run_partition_insert_if_table_exists_2024_01_22T05_00_00_00_00_63448264f987eec9c37ce8f3f80bc57b
+
+[2025-06-27T02:58:31.754+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=ga4_raw_data_elt_v1.0, task_id=run_partition_insert_if_table_exists, run_id=scheduled__2024-01-22T05:00:00+00:00, execution_date=20240122T050000, start_date=20250627T025824, end_date=20250627T025831
+[2025-06-27T02:58:31.774+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:58:31.775+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 254 for task run_partition_insert_if_table_exists (400 Query error: Inserted row has wrong column count; Has 26, expected 31 at [3:25]
+
+Location: US
+Job ID: airflow_ga4_raw_data_elt_v1_0_run_partition_insert_if_table_exists_2024_01_22T05_00_00_00_00_63448264f987eec9c37ce8f3f80bc57b
+; 654)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 3023, in execute
+    job.result(timeout=self.result_timeout, retry=self.result_retry)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/query.py", line 1590, in result
+    do_get_result()
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/query.py", line 1579, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 971, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Query error: Inserted row has wrong column count; Has 26, expected 31 at [3:25]
+
+Location: US
+Job ID: airflow_ga4_raw_data_elt_v1_0_run_partition_insert_if_table_exists_2024_01_22T05_00_00_00_00_63448264f987eec9c37ce8f3f80bc57b
+
+[2025-06-27T02:58:31.811+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-06-27T02:58:31.863+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:58:31.867+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

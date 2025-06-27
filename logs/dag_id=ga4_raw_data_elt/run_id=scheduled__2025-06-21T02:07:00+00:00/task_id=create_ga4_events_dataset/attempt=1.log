@@ -1,0 +1,100 @@
+[2025-06-27T02:06:12.277+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:06:12.289+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:06:12.293+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:06:12.294+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:06:12.316+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryCreateEmptyDatasetOperator): create_ga4_events_dataset> on 2025-06-21 02:07:00+00:00
+[2025-06-27T02:06:12.323+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=79) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:06:12.337+0000] {standard_task_runner.py:72} INFO - Started process 93 to run task
+[2025-06-27T02:06:12.340+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'create_ga4_events_dataset', 'scheduled__2025-06-21T02:07:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpr6bzgi6a']
+[2025-06-27T02:06:12.357+0000] {standard_task_runner.py:105} INFO - Job 14: Subtask create_ga4_events_dataset
+[2025-06-27T02:06:12.454+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [running]> on host 040d1cf847a3
+[2025-06-27T02:06:12.578+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='create_ga4_events_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-06-21T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-21T02:07:00+00:00'
+[2025-06-27T02:06:12.582+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:06:12.608+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:06:12.656+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:06:12.659+0000] {bigquery.py:533} INFO - datasetId was not specified in `dataset_reference`. Will use default value ga4_events.
+[2025-06-27T02:06:12.661+0000] {bigquery.py:533} INFO - projectId was not specified in `dataset_reference`. Will use default value sixth-topic-349709.
+[2025-06-27T02:06:12.665+0000] {bigquery.py:544} INFO - Creating dataset: ga4_events in project: sixth-topic-349709 
+[2025-06-27T02:06:13.912+0000] {bigquery.py:548} INFO - Dataset created successfully.
+[2025-06-27T02:06:13.942+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:06:13.943+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=create_ga4_events_dataset, run_id=scheduled__2025-06-21T02:07:00+00:00, execution_date=20250621T020700, start_date=20250627T020612, end_date=20250627T020613
+[2025-06-27T02:06:13.961+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:06:14.001+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:06:14.003+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:17:48.651+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:17:48.668+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:17:48.677+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:17:48.678+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:17:48.695+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryCreateEmptyDatasetOperator): create_ga4_events_dataset> on 2025-06-21 02:07:00+00:00
+[2025-06-27T02:17:48.707+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=82) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:17:48.710+0000] {standard_task_runner.py:72} INFO - Started process 98 to run task
+[2025-06-27T02:17:48.724+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'create_ga4_events_dataset', 'scheduled__2025-06-21T02:07:00+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpj43vdnbe']
+[2025-06-27T02:17:48.741+0000] {standard_task_runner.py:105} INFO - Job 12: Subtask create_ga4_events_dataset
+[2025-06-27T02:17:48.851+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [running]> on host ece8b7d95be1
+[2025-06-27T02:17:48.946+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='create_ga4_events_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-06-21T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-21T02:07:00+00:00'
+[2025-06-27T02:17:48.951+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:17:48.966+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:17:48.989+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:17:48.992+0000] {bigquery.py:533} INFO - datasetId was not specified in `dataset_reference`. Will use default value ga4_events.
+[2025-06-27T02:17:48.994+0000] {bigquery.py:533} INFO - projectId was not specified in `dataset_reference`. Will use default value sixth-topic-349709.
+[2025-06-27T02:17:48.996+0000] {bigquery.py:544} INFO - Creating dataset: ga4_events in project: sixth-topic-349709 
+[2025-06-27T02:17:50.231+0000] {bigquery.py:548} INFO - Dataset created successfully.
+[2025-06-27T02:17:50.258+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:17:50.259+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=create_ga4_events_dataset, run_id=scheduled__2025-06-21T02:07:00+00:00, execution_date=20250621T020700, start_date=20250627T021748, end_date=20250627T021750
+[2025-06-27T02:17:50.315+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:17:50.335+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:17:50.336+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:21:09.146+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:21:09.163+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:21:09.174+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:21:09.175+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:21:09.219+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryCreateEmptyDatasetOperator): create_ga4_events_dataset> on 2025-06-21 02:07:00+00:00
+[2025-06-27T02:21:09.232+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=84) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:21:09.237+0000] {standard_task_runner.py:72} INFO - Started process 99 to run task
+[2025-06-27T02:21:09.238+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'create_ga4_events_dataset', 'scheduled__2025-06-21T02:07:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpqhwq5deg']
+[2025-06-27T02:21:09.246+0000] {standard_task_runner.py:105} INFO - Job 14: Subtask create_ga4_events_dataset
+[2025-06-27T02:21:09.397+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [running]> on host a6d750376b6f
+[2025-06-27T02:21:09.477+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='create_ga4_events_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-06-21T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-21T02:07:00+00:00'
+[2025-06-27T02:21:09.482+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:21:09.495+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:21:09.513+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:21:09.516+0000] {bigquery.py:533} INFO - datasetId was not specified in `dataset_reference`. Will use default value ga4_events.
+[2025-06-27T02:21:09.516+0000] {bigquery.py:533} INFO - projectId was not specified in `dataset_reference`. Will use default value sixth-topic-349709.
+[2025-06-27T02:21:09.517+0000] {bigquery.py:544} INFO - Creating dataset: ga4_events in project: sixth-topic-349709 
+[2025-06-27T02:21:10.720+0000] {bigquery.py:548} INFO - Dataset created successfully.
+[2025-06-27T02:21:10.748+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:21:10.748+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=create_ga4_events_dataset, run_id=scheduled__2025-06-21T02:07:00+00:00, execution_date=20250621T020700, start_date=20250627T022109, end_date=20250627T022110
+[2025-06-27T02:21:10.789+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:21:10.831+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:21:10.833+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-06-27T02:34:53.186+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T02:34:53.209+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:34:53.220+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [queued]>
+[2025-06-27T02:34:53.221+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T02:34:53.257+0000] {taskinstance.py:2888} INFO - Executing <Task(BigQueryCreateEmptyDatasetOperator): create_ga4_events_dataset> on 2025-06-21 02:07:00+00:00
+[2025-06-27T02:34:53.312+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=87) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-27T02:34:53.327+0000] {standard_task_runner.py:72} INFO - Started process 101 to run task
+[2025-06-27T02:34:53.340+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ga4_raw_data_elt', 'create_ga4_events_dataset', 'scheduled__2025-06-21T02:07:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/GA4_data_elt.py', '--cfg-path', '/tmp/tmpqelzyzok']
+[2025-06-27T02:34:53.345+0000] {standard_task_runner.py:105} INFO - Job 14: Subtask create_ga4_events_dataset
+[2025-06-27T02:34:53.482+0000] {task_command.py:467} INFO - Running <TaskInstance: ga4_raw_data_elt.create_ga4_events_dataset scheduled__2025-06-21T02:07:00+00:00 [running]> on host ba60ab6371e3
+[2025-06-27T02:34:53.662+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ga4_raw_data_elt' AIRFLOW_CTX_TASK_ID='create_ga4_events_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-06-21T02:07:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-21T02:07:00+00:00'
+[2025-06-27T02:34:53.672+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T02:34:53.691+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T02:34:53.696+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T02:34:53.697+0000] {bigquery.py:533} INFO - datasetId was not specified in `dataset_reference`. Will use default value ga4_events.
+[2025-06-27T02:34:53.698+0000] {bigquery.py:533} INFO - projectId was not specified in `dataset_reference`. Will use default value sixth-topic-349709.
+[2025-06-27T02:34:53.699+0000] {bigquery.py:544} INFO - Creating dataset: ga4_events in project: sixth-topic-349709 
+[2025-06-27T02:34:55.060+0000] {bigquery.py:548} INFO - Dataset created successfully.
+[2025-06-27T02:34:55.087+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T02:34:55.088+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ga4_raw_data_elt, task_id=create_ga4_events_dataset, run_id=scheduled__2025-06-21T02:07:00+00:00, execution_date=20250621T020700, start_date=20250627T023453, end_date=20250627T023455
+[2025-06-27T02:34:55.129+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T02:34:55.164+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T02:34:55.166+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
