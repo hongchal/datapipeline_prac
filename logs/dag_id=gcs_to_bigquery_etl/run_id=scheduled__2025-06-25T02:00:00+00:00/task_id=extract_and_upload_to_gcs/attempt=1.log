@@ -1,3 +1,21 @@
-[2025-06-26T02:14:02.716+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
-[2025-06-26T02:14:02.818+0000] {taskinstance.py:2602} INFO - Dependencies not met for <TaskInstance: gcs_to_bigquery_etl.extract_and_upload_to_gcs scheduled__2025-06-25T02:00:00+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0, success_setup=0, skipped_setup=0), upstream_task_ids={'start'}
-[2025-06-26T02:14:02.820+0000] {local_task_job_runner.py:166} INFO - Task is not able to be run
+[2025-06-27T01:42:03.926+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-27T01:42:03.937+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gcs_to_bigquery_etl.extract_and_upload_to_gcs scheduled__2025-06-25T02:00:00+00:00 [queued]>
+[2025-06-27T01:42:03.941+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gcs_to_bigquery_etl.extract_and_upload_to_gcs scheduled__2025-06-25T02:00:00+00:00 [queued]>
+[2025-06-27T01:42:03.942+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-06-27T01:42:03.948+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): extract_and_upload_to_gcs> on 2025-06-25 02:00:00+00:00
+[2025-06-27T01:42:03.955+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=498) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-27T01:42:03.956+0000] {standard_task_runner.py:72} INFO - Started process 500 to run task
+[2025-06-27T01:42:03.955+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'gcs_to_bigquery_etl', 'extract_and_upload_to_gcs', 'scheduled__2025-06-25T02:00:00+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/simple_etl_bigquery_ver3.py', '--cfg-path', '/tmp/tmpp_d1hflr']
+[2025-06-27T01:42:03.957+0000] {standard_task_runner.py:105} INFO - Job 37: Subtask extract_and_upload_to_gcs
+[2025-06-27T01:42:03.986+0000] {task_command.py:467} INFO - Running <TaskInstance: gcs_to_bigquery_etl.extract_and_upload_to_gcs scheduled__2025-06-25T02:00:00+00:00 [running]> on host d46d6ba51874
+[2025-06-27T01:42:04.036+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gcs_to_bigquery_etl' AIRFLOW_CTX_TASK_ID='extract_and_upload_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2025-06-25T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-25T02:00:00+00:00'
+[2025-06-27T01:42:04.037+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-27T01:42:04.732+0000] {connection.py:277} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-06-27T01:42:04.733+0000] {base.py:84} INFO - Retrieving connection 'google_cloud_default'
+[2025-06-27T01:42:05.481+0000] {gcs.py:574} INFO - Data stream uploaded to country_capital.csv in hanpoom_*** bucket
+[2025-06-27T01:42:05.483+0000] {python.py:240} INFO - Done. Returned value was: gs://hanpoom_***/country_capital.csv
+[2025-06-27T01:42:05.510+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-27T01:42:05.510+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=gcs_to_bigquery_etl, task_id=extract_and_upload_to_gcs, run_id=scheduled__2025-06-25T02:00:00+00:00, execution_date=20250625T020000, start_date=20250627T014203, end_date=20250627T014205
+[2025-06-27T01:42:05.554+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-27T01:42:05.577+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-27T01:42:05.578+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

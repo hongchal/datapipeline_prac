@@ -1,1 +1,3 @@
 .env
+config/gcp_service_account.json
+config/variables.json

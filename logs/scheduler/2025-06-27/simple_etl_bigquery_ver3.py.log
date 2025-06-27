@@ -1,0 +1,43 @@
+[2025-06-27T01:39:53.394+0000] {processor.py:186} INFO - Started process (PID=212) to work on /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:39:53.395+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/simple_etl_bigquery_ver3.py for tasks to queue
+[2025-06-27T01:39:53.400+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.399+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:39:53.431+0000] {processor.py:925} INFO - DAG(s) 'gcs_to_bigquery_etl' retrieved from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:39:53.839+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.839+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.845+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.845+0000] {override.py:1900} INFO - Created Permission View: can read on DAG:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.847+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.847+0000] {override.py:1900} INFO - Created Permission View: can edit on DAG:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.851+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.851+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG Run:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.854+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.853+0000] {override.py:1900} INFO - Created Permission View: can read on DAG Run:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.857+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.857+0000] {override.py:1900} INFO - Created Permission View: menu access on DAG Run:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.859+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.859+0000] {override.py:1900} INFO - Created Permission View: can create on DAG Run:gcs_to_bigquery_etl
+[2025-06-27T01:39:53.862+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.862+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:39:53.870+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.870+0000] {dag.py:3252} INFO - Creating ORM DAG for gcs_to_bigquery_etl
+[2025-06-27T01:39:53.876+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.875+0000] {dag.py:4156} INFO - Setting next_dagrun for gcs_to_bigquery_etl to 2025-06-25 02:00:00+00:00, run_after=2025-06-26 02:00:00+00:00
+[2025-06-27T01:39:53.892+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/simple_etl_bigquery_ver3.py took 0.505 seconds
+[2025-06-27T01:40:24.533+0000] {processor.py:186} INFO - Started process (PID=262) to work on /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:24.536+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/simple_etl_bigquery_ver3.py for tasks to queue
+[2025-06-27T01:40:24.541+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:24.540+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:24.594+0000] {processor.py:925} INFO - DAG(s) 'gcs_to_bigquery_etl' retrieved from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:24.612+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:24.612+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:40:25.008+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:25.008+0000] {dag.py:4156} INFO - Setting next_dagrun for gcs_to_bigquery_etl to 2025-06-25 02:00:00+00:00, run_after=2025-06-26 02:00:00+00:00
+[2025-06-27T01:40:25.035+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/simple_etl_bigquery_ver3.py took 0.513 seconds
+[2025-06-27T01:40:55.709+0000] {processor.py:186} INFO - Started process (PID=293) to work on /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:55.711+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/simple_etl_bigquery_ver3.py for tasks to queue
+[2025-06-27T01:40:55.715+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:55.715+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:55.763+0000] {processor.py:925} INFO - DAG(s) 'gcs_to_bigquery_etl' retrieved from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:40:55.778+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:55.777+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:40:56.149+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:56.149+0000] {dag.py:4156} INFO - Setting next_dagrun for gcs_to_bigquery_etl to 2025-06-25 02:00:00+00:00, run_after=2025-06-26 02:00:00+00:00
+[2025-06-27T01:40:56.161+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/simple_etl_bigquery_ver3.py took 0.460 seconds
+[2025-06-27T01:41:26.816+0000] {processor.py:186} INFO - Started process (PID=360) to work on /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:26.818+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/simple_etl_bigquery_ver3.py for tasks to queue
+[2025-06-27T01:41:26.824+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.823+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:26.890+0000] {processor.py:925} INFO - DAG(s) 'gcs_to_bigquery_etl' retrieved from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:26.915+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.914+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:41:26.958+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.957+0000] {dag.py:4156} INFO - Setting next_dagrun for gcs_to_bigquery_etl to 2025-06-25 02:00:00+00:00, run_after=2025-06-26 02:00:00+00:00
+[2025-06-27T01:41:26.991+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/simple_etl_bigquery_ver3.py took 0.202 seconds
+[2025-06-27T01:41:57.540+0000] {processor.py:186} INFO - Started process (PID=481) to work on /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:57.542+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/simple_etl_bigquery_ver3.py for tasks to queue
+[2025-06-27T01:41:57.544+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.544+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:57.575+0000] {processor.py:925} INFO - DAG(s) 'gcs_to_bigquery_etl' retrieved from /opt/airflow/dags/simple_etl_bigquery_ver3.py
+[2025-06-27T01:41:57.591+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.591+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:41:57.608+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.608+0000] {dag.py:4156} INFO - Setting next_dagrun for gcs_to_bigquery_etl to 2025-06-25 02:00:00+00:00, run_after=2025-06-26 02:00:00+00:00
+[2025-06-27T01:41:57.624+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/simple_etl_bigquery_ver3.py took 0.092 seconds

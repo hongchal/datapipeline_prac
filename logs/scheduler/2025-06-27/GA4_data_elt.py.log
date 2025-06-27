@@ -1,0 +1,43 @@
+[2025-06-27T01:39:53.388+0000] {processor.py:186} INFO - Started process (PID=209) to work on /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:39:53.389+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/GA4_data_elt.py for tasks to queue
+[2025-06-27T01:39:53.392+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.392+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:39:53.410+0000] {processor.py:925} INFO - DAG(s) 'ga4_raw_data_elt' retrieved from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:39:53.837+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.836+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG:ga4_raw_data_elt
+[2025-06-27T01:39:53.842+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.842+0000] {override.py:1900} INFO - Created Permission View: can read on DAG:ga4_raw_data_elt
+[2025-06-27T01:39:53.845+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.845+0000] {override.py:1900} INFO - Created Permission View: can edit on DAG:ga4_raw_data_elt
+[2025-06-27T01:39:53.848+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.848+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG Run:ga4_raw_data_elt
+[2025-06-27T01:39:53.852+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.851+0000] {override.py:1900} INFO - Created Permission View: can read on DAG Run:ga4_raw_data_elt
+[2025-06-27T01:39:53.855+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.854+0000] {override.py:1900} INFO - Created Permission View: menu access on DAG Run:ga4_raw_data_elt
+[2025-06-27T01:39:53.857+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.857+0000] {override.py:1900} INFO - Created Permission View: can create on DAG Run:ga4_raw_data_elt
+[2025-06-27T01:39:53.858+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.857+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:39:53.865+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.864+0000] {dag.py:3252} INFO - Creating ORM DAG for ga4_raw_data_elt
+[2025-06-27T01:39:53.871+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:39:53.871+0000] {dag.py:4156} INFO - Setting next_dagrun for ga4_raw_data_elt to 2025-06-20 05:00:00+00:00, run_after=2025-06-21 05:00:00+00:00
+[2025-06-27T01:39:53.889+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/GA4_data_elt.py took 0.513 seconds
+[2025-06-27T01:40:24.533+0000] {processor.py:186} INFO - Started process (PID=259) to work on /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:24.534+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/GA4_data_elt.py for tasks to queue
+[2025-06-27T01:40:24.540+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:24.539+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:24.567+0000] {processor.py:925} INFO - DAG(s) 'ga4_raw_data_elt' retrieved from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:24.604+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:24.603+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:40:24.632+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:24.632+0000] {dag.py:4156} INFO - Setting next_dagrun for ga4_raw_data_elt to 2025-06-20 05:00:00+00:00, run_after=2025-06-21 05:00:00+00:00
+[2025-06-27T01:40:25.047+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/GA4_data_elt.py took 0.536 seconds
+[2025-06-27T01:40:55.706+0000] {processor.py:186} INFO - Started process (PID=290) to work on /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:55.707+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/GA4_data_elt.py for tasks to queue
+[2025-06-27T01:40:55.714+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:55.713+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:55.742+0000] {processor.py:925} INFO - DAG(s) 'ga4_raw_data_elt' retrieved from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:40:55.776+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:55.775+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:40:56.146+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:40:56.146+0000] {dag.py:4156} INFO - Setting next_dagrun for ga4_raw_data_elt to 2025-06-20 05:00:00+00:00, run_after=2025-06-21 05:00:00+00:00
+[2025-06-27T01:40:56.160+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/GA4_data_elt.py took 0.461 seconds
+[2025-06-27T01:41:26.816+0000] {processor.py:186} INFO - Started process (PID=356) to work on /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:26.818+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/GA4_data_elt.py for tasks to queue
+[2025-06-27T01:41:26.824+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.823+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:26.875+0000] {processor.py:925} INFO - DAG(s) 'ga4_raw_data_elt' retrieved from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:26.915+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.914+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:41:26.956+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:26.956+0000] {dag.py:4156} INFO - Setting next_dagrun for ga4_raw_data_elt to 2025-06-26 05:00:00+00:00, run_after=2025-06-27 05:00:00+00:00
+[2025-06-27T01:41:26.993+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/GA4_data_elt.py took 0.204 seconds
+[2025-06-27T01:41:57.540+0000] {processor.py:186} INFO - Started process (PID=478) to work on /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:57.541+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/GA4_data_elt.py for tasks to queue
+[2025-06-27T01:41:57.544+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.544+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:57.562+0000] {processor.py:925} INFO - DAG(s) 'ga4_raw_data_elt' retrieved from /opt/airflow/dags/GA4_data_elt.py
+[2025-06-27T01:41:57.584+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.583+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-06-27T01:41:57.604+0000] {logging_mixin.py:190} INFO - [2025-06-27T01:41:57.604+0000] {dag.py:4156} INFO - Setting next_dagrun for ga4_raw_data_elt to 2025-06-26 05:00:00+00:00, run_after=2025-06-27 05:00:00+00:00
+[2025-06-27T01:41:57.619+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/GA4_data_elt.py took 0.088 seconds
