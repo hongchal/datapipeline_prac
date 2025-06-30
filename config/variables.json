@@ -1,0 +1,11 @@
+{
+    "BIG_QUERY_PROJECT_ID": "sixth-topic-349709",
+    "GCS_BUCKET": "hanpoom_airflow",
+    "country_capital_url": "https://s3-geospatial.s3.us-west-2.amazonaws.com/country_capital.csv",
+    "GA4_PROD_DATASET_ID": "analytics_412203527",
+    "GA4_PROD_RAW_DATASET_ID": "ga4_events",
+    "GA4_PROD_RAW_DATA_TABLE_ID": "raw_data",
+    "GA4_DEV_DATASET_ID": "analytics_393230827",
+    "GA4_DEV_RAW_DATASET_ID": "ga4_events_dev",
+    "GA4_DEV_RAW_DATA_TABLE_ID": "raw_data_dev"
+}   

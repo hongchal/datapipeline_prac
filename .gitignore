@@ -1,5 +1,6 @@
-.env
 config/gcp_service_account.json
-config/variables.json
 logs/*
 !logs/.gitkeep
+__pycache__/
+  *.pyc
+  *.pyo
