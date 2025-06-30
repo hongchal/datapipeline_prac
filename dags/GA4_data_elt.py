@@ -1,6 +1,5 @@
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator, BigQueryCreateEmptyDatasetOperator
-from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime
 from airflow.decorators import task
 from airflow.models import Variable
@@ -79,11 +78,4 @@ with DAG(
         },
     )
 
-    trigger_event_elt = TriggerDagRunOperator(
-        task_id='trigger_event_elt',
-        trigger_dag_id=f'ga4_event_elt_{ENV}',
-        conf={"ds": "{{ ds }}"},
-        wait_for_completion=False,
-    )
-
-    start >> create_dataset >> create_table >> run_partition_insert >> trigger_event_elt >> end
+    start >> create_dataset >> create_table >> run_partition_insert >> end
