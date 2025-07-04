@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `{project_id}.{target_dataset_id}.{target_table_id}`
 PARTITION BY partition_date
 AS
-WITH view_item_data AS (
+WITH add_to_cart_data AS (
     SELECT 
         event_date,
         event_timestamp,
@@ -12,28 +12,33 @@ WITH view_item_data AS (
         user_pseudo_id,
         (SELECT value.int_value FROM UNNEST(event_params) WHERE key = "ga_session_id") AS ga_session_id,
         (SELECT value.int_value FROM UNNEST(event_params) WHERE key = "ga_session_number") AS ga_session_number,
+        (SELECT value.string_value FROM UNNEST(event_params) WHERE key = "item_add_origin") AS item_add_origin,
+        (SELECT value.string_value FROM UNNEST(event_params) WHERE key = "currency") AS currency,
+        COALESCE(
+            CAST((SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'value') AS FLOAT64),
+            (SELECT value.float_value FROM UNNEST(event_params) WHERE key = 'value') ,
+            (SELECT value.double_value FROM UNNEST(event_params) WHERE key = 'value') 
+            ) AS value,
         (SELECT value.int_value FROM UNNEST(item.item_params) WHERE key = 'item_id_wms') AS item_id,
         item_id as shopify_item_id,
         item_name, 
+        item_variant,
         item_category,
         (SELECT value.string_value FROM UNNEST(item.item_params) WHERE key = 'item_type') AS shipping_type,
-        (SELECT value.string_value FROM UNNEST(item.item_params) WHERE key = 'item_list_type') AS item_list_type,
-        COALESCE(
-            CAST((SELECT value.int_value FROM UNNEST(item.item_params) WHERE key = 'regular_price') AS FLOAT64),
-            (SELECT value.float_value FROM UNNEST(item.item_params) WHERE key = 'regular_price'),
-            (SELECT value.double_value FROM UNNEST(item.item_params) WHERE key = 'regular_price') 
-        ) AS regular_price,
+        (SELECT value.double_value FROM UNNEST(item.item_params) WHERE key = 'regular_price') AS regular_price,
         price,
         COALESCE(
             CAST((SELECT value.int_value FROM UNNEST(item.item_params) WHERE key = 'avg_rating') AS FLOAT64),
-            (SELECT value.float_value FROM UNNEST(item.item_params) WHERE key = 'avg_rating'),
+            (SELECT value.float_value FROM UNNEST(item.item_params) WHERE key = 'avg_rating') ,
             (SELECT value.double_value FROM UNNEST(item.item_params) WHERE key = 'avg_rating') 
-        ) AS avg_rating,
+            ) AS avg_rating,
+        (SELECT value.int_value FROM UNNEST(item.item_params) WHERE key = 'review_count') AS review_count,
+        quantity,
         PARSE_DATE('%Y%m%d', event_date) AS partition_date
     FROM `{project_id}.{source_dataset_id}.raw_data`,
     UNNEST(items) AS item
-    WHERE event_name = 'view_item'
+    WHERE event_name = 'add_to_cart'
     AND event_date <= REPLACE('{ds}', '-', '')
 )
-SELECT * FROM view_item_data
+SELECT * FROM add_to_cart_data
 WHERE FALSE
